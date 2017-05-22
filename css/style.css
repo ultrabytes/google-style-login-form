@@ -1,0 +1,257 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+html
+{
+	height:100%;
+}
+body {
+	font-family: Helvetica;	
+	-webkit-font-smoothing: antialiased;
+	background:url(../images/bg.jpg);
+	background-repeat: no-repeat;
+    background-size: cover;
+	height: 100%;
+}
+.clearfix
+{	
+	content: '';
+	display: table;
+}
+h1, h3 {
+	font-weight: 300;
+}
+h1 {
+	color: #636363;
+}
+h3 {
+	color: #4a89dc;
+}
+div#sucess-msg {
+    background: lightgreen;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    text-transform: capitalize;
+    color: #fff;
+    font-size: 18px;
+    opacity: 0;
+    transition: 0.5s ease-in;
+    position: relative;
+    top: 10px;
+	margin: 0 10px;
+}
+.form-blk
+{
+	width: 485px;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 400px;
+	text-align:center;
+	overflow: hidden;
+}
+
+form {
+	
+	padding: 3em 2em 2em 2em;
+	background: #fff;
+	border: 1px solid #ebebeb;
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+	
+}
+.group {
+	position: relative;
+	margin-bottom: 45px;
+}
+input {
+	font-size: 18px;
+	padding: 10px 10px 10px 5px;
+	-webkit-appearance: none;
+	display: block;
+	background: #fff;
+	color: #636363;
+	width: 100%;
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px solid #ddd;
+}
+.log, .log2
+{
+	transition: 0.5s ease-in;
+	float: left;
+	width: 100%;	
+	right: 0;
+}
+.log3{
+	right:-100%;
+}
+
+.hidden
+{
+	opacity:0;
+	position: absolute;
+	right: -100%;
+}
+input:focus {
+	outline: none;
+}
+/* Label */
+label {
+	color: #A0A0A0;
+	font-size: 16px;
+	font-weight: normal;
+	position: absolute;
+	pointer-events: none;
+	left: 5px;
+	top: 10px;
+	-webkit-transition: all 0.2s ease-in;
+	transition: all 0.2s ease-in;
+}
+/* active */
+
+input:focus ~ label, input.used ~ label {
+	top: -20px;
+	-webkit-transform: scale(.75);
+	transform: scale(.75);
+	left: -2px;	
+	color: #4a89dc;
+	font-size: 15px;
+}
+.group-last {
+    width: 100%;
+}
+
+a.forget {
+    float: left;
+    color: #4285f4;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 15px;
+}
+input:focus ~ label.lbl-color {
+    color: #f00;
+}
+/* Underline */
+
+.bar {
+	position: relative;
+	display: block;
+	width: 100%;
+}
+.bar:before, .bar:after {
+	content: '';
+	height: 2px;
+	width: 0;
+	bottom: 1px;
+	position: absolute;
+	background: #4a89dc;
+	-webkit-transition: all 0.2s ease-in;
+	transition: all 0.2s ease-in;
+}
+
+.color:before, .color:after {	
+	background: #f00;	
+}
+
+.bar:before {
+	left: 50%;
+}
+.bar:after {
+	right: 50%;
+}
+/* active */
+
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+	width: 50%;
+}
+/* Highlight */
+
+.highlight {
+	position: absolute;
+	height: 60%;
+	width: 100px;
+	top: 25%;
+	left: 0;
+	pointer-events: none;
+	opacity: 0.5;
+}
+/* active */
+
+input:focus ~ .highlight {
+	-webkit-animation: inputHighlighter 0.3s ease-in;
+	animation: inputHighlighter 0.3s ease-in;
+}
+
+.help-block {
+    color: #f00;
+    text-align: left;
+    font-size: 12px;
+	 margin: 5px 0;
+}
+
+input.inp-color {
+    border-bottom: 2px solid #f00;
+	transition: all 0.2s ease-in;
+}
+
+/* Animations */
+
+/*@-webkit-keyframes inputHighlighter {
+ from {
+background: #4a89dc;
+}
+ to {
+width: 0;
+background: transparent;
+}
+}
+ @keyframes inputHighlighter {
+ from {
+background: #4a89dc;
+}
+ to {
+width: 0;
+background: transparent;
+}
+}*/
+/* Button */
+
+.button {
+    position: relative;
+    display: inline-block;
+    padding: 8px 24px;
+    margin: .3em 0 1em 0;
+    width: auto;
+    vertical-align: middle;
+    color: #fff;
+    font-size: 14px;
+    line-height: 20px;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+    letter-spacing: 1px;
+    border: 0;
+    cursor: pointer;
+    -webkit-transition: all 0.15s ease-in;
+    transition: all 0.15s ease-in;
+    border-radius: 3px;
+    float: right;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+}
+.button:focus {
+	outline: 0;
+}
+/* Button modifiers */
+
+.buttonBlue {
+	background: #4a89dc;
+	text-shadow: 1px 1px 0 rgba(39, 110, 204, .5);
+}
+.buttonBlue:hover {
+	background: #357bd8;
+}

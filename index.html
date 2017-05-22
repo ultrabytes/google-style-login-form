@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="UTF-8">
+<title>Fancy Login Form</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<div id="sucess-msg"></div>
+<div class="form-blk">
+  <form id="formComplete">    
+    <div class="group log ">
+      <input type="email" id="email" >
+      <span class="highlight"></span>
+      <span class="bar" id="bar"></span>
+      <label id="email-lbl">Email</label>
+	  <p class="help-block" id="email-error"></p>
+    </div>
+    
+    <div class="group log2 hidden">
+      <input type="password" id="pwd" >
+      <span class="highlight"></span>
+      <span class="bar" id="bar2"></span>
+      <label id="pwd-lbl">Password</label>
+      <p class="help-block" id="password-error"></p>
+    </div>
+    
+    <div class="group-last clearfix"> 
+      <input type="button" id="btn" class="button buttonBlue" value="Next" >
+    </div>
+  </form>
+</div>
+<script src="js/jquery.js"></script> 
+<script src="js/index.js"></script>
+<script>
+		$(document).keydown(function (e) 
+		{
+			var keycode1 = (e.keyCode ? e.keyCode : e.which);
+			if (keycode1 == 0 || keycode1 == 9) {
+				e.preventDefault();
+				e.stopPropagation();
+			}
+		});
+	
+		$(document).ready(function()
+		{
+		$("#btn").on('click', function()
+		 {
+		  var regex=/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;	
+			if(!$("#email").parent().hasClass('hidden'))
+			{
+				if ($("#email").val() == '')
+				{
+					document.getElementById("email-error").innerHTML="Please enter email";
+					$("#bar").addClass('color');
+					$("#email").focus();
+					$('#email-lbl').addClass('lbl-color');
+					$('#email').addClass('inp-color');
+					return;
+				}
+				else if(!$("#email").val().match(regex))
+				{	
+					document.getElementById("email-error").innerHTML="Please enter valid email";
+					return;
+				}
+				else
+				{
+					$('.log2').removeClass('hidden');
+				    $('.log').addClass('hidden');
+					$('.button').val('Submit');					
+					return;
+				}
+			}
+			
+			if(!$("#pwd").parent().hasClass('hidden'))
+			{
+				if ($("#pwd").val() == '')
+				{
+					document.getElementById("password-error").innerHTML="Please enter password";	$('#pwd-lbl').addClass('lbl-color');
+					$("#bar2").addClass('color');
+					$('#pwd').addClass('inp-color');
+					$("#pwd").focus();
+					return;
+				}				
+				else
+				{
+					$('.log').removeClass('hidden');
+					$('.log2').addClass('hidden');				
+					document.getElementById("sucess-msg").innerHTML="you are sucessfully logged in";
+					document.getElementById("sucess-msg").style.opacity="1";
+					$("#email").val('');
+					$("#pwd").val('');
+					$("#email-error").html('');
+					$("#email").removeClass('used');
+					$("#pwd-error").html('');
+					$("#pwd").removeClass('used');
+					$('#email').removeClass('inp-color');
+					$('.button').val('Next');
+					return;
+				}
+			}
+		});		
+});
+</script>
+</body>
+</html>
