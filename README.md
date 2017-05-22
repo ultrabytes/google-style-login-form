@@ -1,6 +1,6 @@
 # Google-style-login-form   
 # Contributors: Charanpreet Singh
-# Demo link : http://www.bytesultra.com/demo/
+# Demo link : http://www.bytesultra.com/demo/google-style-login-form  
 
 ## Purpoese of this Project 
 The main purpose of this project is just how to get a attractive login form. 
